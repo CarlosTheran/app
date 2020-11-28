@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>eNno Bootstrap Template - Index</title>
+  <title>Center For The Advanced Wereable Technology - Index</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -102,7 +102,7 @@
           <h2>This platform provides computational resources to storage, process and analyse chemical data.</h2>
           <div class="d-flex">
             <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="https://youtu.be/I-1uZcKh5eo" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
+            <a href="https://youtu.be/I-1uZcKh5eo" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="/static/icofont-play-alt-2"></i></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
@@ -123,7 +123,22 @@
           <div class="col-lg-4 col-md-6">
             <div class="icon-box">
               <div class="icon"><i class="icofont-computer"></i></div>
-              <h4 class="title"><a href="">Upload data to HDFS</a></h4>
+              <form action=" ">
+                  <label for="fpath">Folder full path/name:</label>
+                  <input type="text" id="fpath" name="fpath"><br><br>
+                  <input type="submit" value="Submit">
+                  <a href="/hadoop_new_folder">Create folder into HDFS</a>
+              </form> 
+               <!--<form action="{{ url_for('hadoop_new_folder') }}">
+                  <label for="fpath">Folder full path/name:</label>
+                  <input type="text" id="fpath" name="fpath"><br><br>
+                  <input type="submit" value="Submit">
+                  <a href="/hadoop_new_folder">Create folder into HDFS</a>
+              </form> -->
+              <!--<form action="/hadoop_new_folder" method = "get">
+                  Folder full path/name: <input type="text"  name="fpath"><br><br>
+                  <input type = "submit" value = "Submit" />
+              </form>-->
               <p class="description">Using this service you can save your data into our platform safely, and high-foult tolerant.</p>
             </div>
           </div>
