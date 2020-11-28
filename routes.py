@@ -1,5 +1,10 @@
-from flask import render_template
+from flask import render_template, request
 from app import app
+import subprocess
+from subprocess import Popen
+import sys
+import cgi, cgitb
+import pdb
 
 @app.route('/')
 @app.route('/index',methods=['GET', 'POST'])
@@ -46,3 +51,22 @@ def index():
     ]
     #render_template('index.html', title='Home', user=user, posts=posts)
     return render_template('index.html')
+@app.route('/hadoop_new_folder', methods=['POST','GET'])    
+def hadoop_new_folder():
+    #the parameter path must start with the simbol /, e.x /path
+    #form = cgi.FieldStorage()
+    #if "fpath" not in form:
+    #    print("<H1>Error</H1>")
+    #    print("Please fill in the full path fields.")
+
+    #print("<p>name:", form["fpath"].value)
+    #path = form.getvalue('fpath')
+    path = '/test_new_delete'
+    #pdb.set_trace()
+    #path = request.files['fpath']
+    full_command = 'hadoop dfs -mkdir '+ path
+    p = Popen(full_command , shell=True)
+    #p.wait()
+    #p = Popen('hadoop dfs -ls /' , shell=True)
+    #output = p.stdout
+    #return output
