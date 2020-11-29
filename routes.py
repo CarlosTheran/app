@@ -51,22 +51,38 @@ def index():
     ]
     #render_template('index.html', title='Home', user=user, posts=posts)
     return render_template('index.html')
-@app.route('/hadoop_new_folder', methods=['POST','GET'])    
+@app.route('/hadoop_new_folder', methods=['POST'])    
 def hadoop_new_folder():
-    #the parameter path must start with the simbol /, e.x /path
-    #form = cgi.FieldStorage()
-    #if "fpath" not in form:
-    #    print("<H1>Error</H1>")
-    #    print("Please fill in the full path fields.")
-
-    #print("<p>name:", form["fpath"].value)
-    #path = form.getvalue('fpath')
-    path = '/test_new_delete'
-    #pdb.set_trace()
-    #path = request.files['fpath']
+    # Example: /new_folder or /path/new_folder
+    path = request.form['fpath']
     full_command = 'hadoop dfs -mkdir '+ path
     p = Popen(full_command , shell=True)
-    #p.wait()
-    #p = Popen('hadoop dfs -ls /' , shell=True)
-    #output = p.stdout
-    #return output
+    return render_template('index.html')
+
+@app.route('/hadoop_delete_folder', methods=['POST'])    
+def hadoop_delete_folder():
+    # Example: /new_folder or /path/new_folder
+    path = request.form['fpath_delte']
+    full_command = 'hadoop dfs -rm -r '+ path
+    p = Popen(full_command , shell=True)
+    return render_template('index.html')
+
+@app.route('/hadoop_upload_data', methods=['POST'])    
+def hadoop_upload_data():
+    # Example: /ocal_path/new_data  /hdfs_path
+    # hadoop dfs -put /home/ubuntu/data_covid/csv_covi19 /test_new_delete
+    local_path = request.form['fpath_localFile']
+    hdfs_path = request.form['fpath_hdfsFile']
+    full_command = 'hadoop dfs -put '+ local_path + ' ' + hdfs_path
+    p = Popen(full_command , shell=True)
+    return render_template('index.html')  
+
+@app.route('/hadoop_download_folder', methods=['POST'])    
+def hadoop_download_folder():
+    # Example: /ocal_path/new_data  /hdfs_path
+    # hadoop dfs -get /test_new_delete/csv_covi19  /home/ubuntu
+    local_path = request.form['dpath_localFile']
+    hdfs_path = request.form['dpath_hdfsFile']
+    full_command = 'hadoop dfs -get '+ hdfs_path + ' ' + local_path
+    p = Popen(full_command , shell=True)
+    return render_template('index.html')        
