@@ -122,35 +122,22 @@
         <div class="row">
           <div class="col-lg-4 col-md-6">
             <div class="icon-box">
-              <div class="icon"><i class="icofont-computer"></i></div>
-              <!--<form action=" ">
-                  <label for="fpath">Folder full path/name:</label>
-                  <input type="text" id="fpath" name="fpath"><br><br>
-                  <input type="submit" value="Submit">
-                  <a href="/hadoop_new_folder">Create folder into HDFS</a>
-              </form> -->
-              <form action="{{ url_for('hadoop_new_folder') }}" method="POST">
-                  <label for="fpath">Folder full path/name:</label>
-                  <input type="text" id="fpath" name="fpath"><br><br>
-                  <input type="submit" value="Create Folder">
-              </form>
-              <!--<form action="/hadoop_new_folder" method = "get">
-                  Folder full path/name: <input type="text"  name="fpath"><br><br>
-                  <input type = "submit" value = "Submit" />
-              </form>-->
+              <div class="icon"><i class="/static/icofont-computer"></i></div>
+                 <div class="icon"><i class="static/icofont-image"></i></div>
+              <h4 class="title"><a href="">Cloud Computing Platform</a></h4>
               <p class="description">Using this service you can save your data into our platform safely, and high-foult tolerant.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
-              <div class="icon"><i class="icofont-image"></i></div>
+              <div class="icon"><i class="static/icofont-image"></i></div>
               <h4 class="title"><a href="">ElemNet</a></h4>
               <p class="description">This option allow you to analyse your material data using a fully-connected architecture.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
             <div class="icon-box">
-              <div class="icon"><i class="icofont-tasks-alt"></i></div>
+              <div class="icon"><i class="static/icofont-tasks-alt"></i></div>
               <h4 class="title"><a href="">IRnet</a></h4>
               <p class="description">This option allow you to analyse your material data using a fully-skip-connected architecture.</p>
             </div>
@@ -175,9 +162,9 @@
               to improve and provide a better lifestyle to the society in term of health.
             </p>
             <ul>
-              <li><i class="icofont-check-circled"></i> IRG1: This group is in charge to develop sensors.</li>
-              <li><i class="icofont-check-circled"></i> IRG2: This group improve the component of wereables batteries.</li>
-              <li><i class="icofont-check-circled"></i> IRG3: This group develope algorithms to data analysis.</li>
+              <li><i class="static/icofont-check-circled"></i> IRG1: This group is in charge to develop sensors.</li>
+              <li><i class="static/icofont-check-circled"></i> IRG2: This group improve the component of wereables batteries.</li>
+              <li><i class="static/icofont-check-circled"></i> IRG3: This group develope algorithms to data analysis.</li>
             </ul>
             <p>
               These groups work together to create, desig, and develope advance technology for the present and future.
@@ -232,7 +219,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <div class="icon"><i class="static/bx bxl-dribbble"></i></div>
               <h4><a href="">Create new folder into HDFS</a></h4>
                 <form action="{{ url_for('hadoop_new_folder') }}" method="POST">
                   <label for="fpath">Folder full path/name:</label>
@@ -245,7 +232,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
+              <div class="icon"><i class="static/bx bx-file"></i></div>
               <h4><a href="">Delete a existing folder into HDFS</a></h4>
                 <form action="{{ url_for('hadoop_delete_folder') }}" method="POST">
                   <label for="fpath_delte">Folder full path/name:</label>
@@ -258,7 +245,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <div class="icon"><i class="static/bx bx-tachometer"></i></div>
               <h4><a href="">Upload your data to our HDFS</a></h4>
                 <form action="{{ url_for('hadoop_upload_data') }}" method="POST">
                   <label for="fpath_localFile">Local folder full path/name:</label>
@@ -273,7 +260,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-world"></i></div>
+              <div class="icon"><i class="static/bx bx-world"></i></div>
               <h4><a href="">Download your data from HDFS into a local folder</a></h4>
                 <form action="{{ url_for('hadoop_download_folder') }}" method="POST">
                   <label for="dpath_localFile">Local folder full path/name:</label>
@@ -288,7 +275,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-slideshow"></i></div>
+              <div class="icon"><i class="static/bx bx-slideshow"></i></div>
               <h4><a href="">ElemNet</a></h4>
                 <form action="{{ url_for('hadoop_download_folder') }}" method="POST">
                   <input type="submit" value="Execute ElemNet">
@@ -300,7 +287,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-arch"></i></div>
+              <div class="icon"><i class="static/bx bx-arch"></i></div>
               <h4><a href="">IrNet</a></h4>
               <form action="{{ url_for('hadoop_download_folder') }}" method="POST">
                   <input type="submit" value="Execute IrNet">
@@ -601,19 +588,23 @@
               <div class="address">
                 <i class="icofont-google-map"></i>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>Laboratory for Applied Remote Sensing and Photonics<br>
+                   Research & Development Center, second floor<br>
+                   University of Puerto Rico at Mayagüez<br>
+                   Road 108, KM 1.0
+                   Mayagüez, PR 00680</p>
               </div>
 
               <div class="email">
                 <i class="icofont-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>carlos.theran@upr.edu</p>
               </div>
 
               <div class="phone">
                 <i class="icofont-phone"></i>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p>+1 (787) 832-4040, Ext. 5297</p>
               </div>
 
               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
@@ -670,8 +661,8 @@
 
         <div class="row  justify-content-center">
           <div class="col-lg-6">
-            <h3>eNno</h3>
-            <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+            <h3>LARSIP</h3>
+            <p>Laboratory for Applied Remote Sensing and Photonics</p>
           </div>
         </div>
 
