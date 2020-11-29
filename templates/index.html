@@ -123,18 +123,17 @@
           <div class="col-lg-4 col-md-6">
             <div class="icon-box">
               <div class="icon"><i class="icofont-computer"></i></div>
-              <form action=" ">
-                  <label for="fpath">Folder full path/name:</label>
-                  <input type="text" id="fpath" name="fpath"><br><br>
-                  <input type="submit" value="Submit">
-                  <a href="/hadoop_new_folder">Create folder into HDFS</a>
-              </form> 
-               <!--<form action="{{ url_for('hadoop_new_folder') }}">
+              <!--<form action=" ">
                   <label for="fpath">Folder full path/name:</label>
                   <input type="text" id="fpath" name="fpath"><br><br>
                   <input type="submit" value="Submit">
                   <a href="/hadoop_new_folder">Create folder into HDFS</a>
               </form> -->
+              <form action="{{ url_for('hadoop_new_folder') }}" method="POST">
+                  <label for="fpath">Folder full path/name:</label>
+                  <input type="text" id="fpath" name="fpath"><br><br>
+                  <input type="submit" value="Create Folder">
+              </form>
               <!--<form action="/hadoop_new_folder" method = "get">
                   Folder full path/name: <input type="text"  name="fpath"><br><br>
                   <input type = "submit" value = "Submit" />
@@ -234,48 +233,79 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <h4><a href="">Create new folder into HDFS</a></h4>
+                <form action="{{ url_for('hadoop_new_folder') }}" method="POST">
+                  <label for="fpath">Folder full path/name:</label>
+                  <input type="text" id="fpath" name="fpath"><br><br>
+                  <input type="submit" value="Create Folder">
+                </form>
+              <p>Create a new folder into our HDFS typing the full path of your new folder.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspiciatis</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <h4><a href="">Delete a existing folder into HDFS</a></h4>
+                <form action="{{ url_for('hadoop_delete_folder') }}" method="POST">
+                  <label for="fpath_delte">Folder full path/name:</label>
+                  <input type="text" id="fpath_delte" name="fpath_delte"><br><br>
+                  <input type="submit" value="Delete Folder">
+                </form>
+              <p>Delete an existing folder located into our HDFS typing the full path of your folder.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <h4><a href="">Upload your data to our HDFS</a></h4>
+                <form action="{{ url_for('hadoop_upload_data') }}" method="POST">
+                  <label for="fpath_localFile">Local folder full path/name:</label>
+                  <input type="text" id="fpath_localFile" name="fpath_localFile"><br><br>
+                  <label for="fpath_hdfsFile">HDFS folder full path:</label>
+                  <input type="text" id="fpath_hdfsFile" name="fpath_hdfsFile"><br><br>
+                  <input type="submit" value="Upload data">
+                </form>
+              <p>Upload your data into our HDFS, type the full path withm the name of your file. </p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-world"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <h4><a href="">Download your data from HDFS into a local folder</a></h4>
+                <form action="{{ url_for('hadoop_download_folder') }}" method="POST">
+                  <label for="dpath_localFile">Local folder full path/name:</label>
+                  <input type="text" id="dpath_localFile" name="dpath_localFile"><br><br>
+                  <label for="dpath_hdfsFile">HDFS folder full path:</label>
+                  <input type="text" id="dpath_hdfsFile" name="dpath_hdfsFile"><br><br>
+                  <input type="submit" value="Download data">
+                </form>
+              <p>Download your data from our HDFS, type the full path withm the name of your file.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-slideshow"></i></div>
-              <h4><a href="">Dele cardo</a></h4>
-              <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
+              <h4><a href="">ElemNet</a></h4>
+                <form action="{{ url_for('hadoop_download_folder') }}" method="POST">
+                  <input type="submit" value="Execute ElemNet">
+                </form>
+              <p>This service execute a deep learning achitecture based on fully-connected layers to analize chemical compounts from their elementals
+                conpounts. As a result, this network provides the enthalpy of each elemental composition.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-arch"></i></div>
-              <h4><a href="">Divera don</a></h4>
-              <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
+              <h4><a href="">IrNet</a></h4>
+              <form action="{{ url_for('hadoop_download_folder') }}" method="POST">
+                  <input type="submit" value="Execute IrNet">
+                </form>
+              <p>This service execute a deep learning achitecture based on fully-conected layers and skip-connections to analize chemical compounts from their elementals conpounts. As a result, this network provides the enthalpy of each elemental composition.</p>
             </div>
           </div>
 
