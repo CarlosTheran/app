@@ -81,8 +81,38 @@ def hadoop_upload_data():
 def hadoop_download_folder():
     # Example: /ocal_path/new_data  /hdfs_path
     # hadoop dfs -get /test_new_delete/csv_covi19  /home/ubuntu
-    local_path = request.form['dpath_localFile']
-    hdfs_path = request.form['dpath_hdfsFile']
+    #local_path = request.form['dpath_localFile']
+    #hdfs_path = request.form['dpath_hdfsFile']
     full_command = 'hadoop dfs -get '+ hdfs_path + ' ' + local_path
     p = Popen(full_command , shell=True)
-    return render_template('index.html')        
+    return render_template('index.html')
+
+@app.route('/ElemNet_code', methods=['POST'])    
+def ElemNet_code():
+    # Example: remember to have the corret path, <full_path>/name_file.py e.i. ~/ElemNet/elemnet/dl_regressors.py
+    # and <initial_path>/sample/sample-run.config   e.i. ~/ElemNet/elemnet/sample/sample-run.config 
+    #local_path = request.form['dpath_localFile']
+    #hdfs_path = request.form['dpath_hdfsFile']
+    full_command = 'spark-submit --master yarn --deploy-mode client ~/ElemNet/elemnet/dl_regressors.py --config_file ~/ElemNet/elemnet/sample/sample-run.config'
+    p = Popen(full_command , shell=True)
+    return render_template('index.html') 
+
+@app.route('/IrNet_code', methods=['POST'])    
+def IrNet_code():
+    # Example: /ocal_path/new_data  /hdfs_path
+    # hadoop dfs -get /test_new_delete/csv_covi19  /home/ubuntu
+    #local_path = request.form['dpath_localFile']
+    #hdfs_path = request.form['dpath_hdfsFile']
+    full_command = 'spark-submit --master yarn --deploy-mode client ~/ElemNet/elemnet/dl_regressors_irnet.py --config_file ~/ElemNet/elemnet/sample/sample-run.config'
+    p = Popen(full_command , shell=True)
+    return render_template('index.html') 
+
+@app.route('/SVM_code', methods=['POST'])    
+def SVM_code():
+    # Example: /ocal_path/new_data  /hdfs_path
+    # hadoop dfs -get /test_new_delete/csv_covi19  /home/ubuntu
+    #local_path = request.form['dpath_localFile']
+    #hdfs_path = request.form['dpath_hdfsFile']
+    full_command = 'spark-submit --master yarn --deploy-mode client ~/ElemNet/elemnet/dl_regressors_svm_spark.py --config_file ~/ElemNet/elemnet/sample/sample-run.config'
+    p = Popen(full_command , shell=True)
+    return render_template('index.html')                
